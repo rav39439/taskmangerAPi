@@ -57,7 +57,7 @@ const signup = async (req, res) => {
       // Generate JWT Token
       const token = jwt.sign({ email: newUser.email, id: newUser._id }, "test", { expiresIn: "1h" });
   
-      res.status(201).json({ success: true, message: "Signup successful", data: { user: newUser, token } });
+      res.status(201).json({ success: true, message: "Signup successful", data: { user: newUser, token },result:newUser,token });
     } catch (error) {
       console.error("Signup Error:", error);
       res.status(500).json({ success: false, message: "Internal server error" });
